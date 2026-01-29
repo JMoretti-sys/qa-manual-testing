@@ -1,32 +1,38 @@
-# Sprint 01 – Manual Regression Testing | Urban Routes
+# Sprint 01 – Testes Manuais de Regressão | Urban Routes
 
-## Objective
-Execute manual regression tests to validate core functionalities of the Urban Routes application.
+## Objetivo
+Executar testes manuais de regressão para validar as principais funcionalidades do aplicativo Urban Routes após alterações no sistema.
 
-## Application Overview
-Urban Routes is a route planning application that calculates travel time and cost based on different transportation modes.
+## Visão Geral da Aplicação
+O Urban Routes é um aplicativo de planejamento de rotas que calcula tempo de viagem e custo com base em diferentes meios de transporte.
 
-Main features tested:
-- Map interaction (zoom, scroll, objects)
-- Address input ("From" / "To")
-- Pins visualization
-- Map modes (Satellite, Relief, Street View)
-- UI behavior in full screen mode
+## Funcionalidades Testadas
+- Interação com o mapa (zoom, rolagem e objetos)
+- Campos de endereço (“Origem” e “Destino”)
+- Visualização de pins no mapa
+- Modos de visualização do mapa (Satélite, Relevo e Mapa padrão)
+- Comportamento da interface em modo tela cheia
+- Estabilidade geral da interface do usuário
 
-## Test Activities
-- Execution of predefined regression test cases
-- Validation of expected vs actual results
-- Identification and documentation of defects
+## Atividades de Teste
+- Execução de casos de teste de regressão previamente definidos
+- Validação dos resultados esperados versus resultados obtidos
+- Identificação, registro e documentação de defeitos encontrados
 
-## Results Summary
-- Total test cases executed: 24
-- Passed and Failed cases documented
-- Bugs reported with detailed reproduction steps and priority
+## Resumo dos Resultados
+- Total de casos de teste executados: 24
+- Casos aprovados e reprovados devidamente documentados
+- Bugs reportados com:
+  - Passos para reprodução
+  - Resultado esperado
+  - Resultado obtido
+  - Prioridade e severidade
 
-## Artifacts
-- Manual test cases
-- Bug reports
+## Artefatos Gerados
+- Casos de teste manuais
+- Relatórios de bugs
 
-## Tools Used
-- Google Sheets / Excel
+## Ferramentas Utilizadas
+- Google Sheets / Microsoft Excel
 - Google Chrome
+---
