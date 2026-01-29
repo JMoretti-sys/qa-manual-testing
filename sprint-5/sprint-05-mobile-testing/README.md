@@ -1,26 +1,31 @@
-# Sprint 5 – Mobile App Testing (Urban Lunch)
+# Sprint 05 – Testes de Aplicativo Mobile (Urban Lunch)
 
-This project focuses on manual testing of the Android application **Urban Lunch**.
+## Objetivo
+Realizar testes manuais no aplicativo Android **Urban Lunch**, validando as principais funcionalidades com base nos requisitos fornecidos.
 
-## Scope
-- Application installation on Android Emulator (Pixel 5)
-- Functional testing based on provided requirements
-- Checklist-based testing of main user flows
-- Bug reporting using Jira
+## Projeto
+**Urban Lunch – Aplicativo Mobile (Android)**
 
-## Test Artifacts
-- Test checklist with execution results
-- Bug reports created during testing
+## Escopo dos Testes
+- Instalação do aplicativo no Emulador Android (Pixel 5)
+- Testes funcionais com base nos requisitos do projeto
+- Testes guiados por checklist dos principais fluxos do usuário
+- Registro e acompanhamento de bugs utilizando o Jira
 
-## Tools
+## Artefatos de Teste
+- Checklist de testes com resultados de execução
+- Relatórios de bugs criados durante a execução dos testes
+
+## Execução dos Testes
+- Todos os testes planejados foram executados
+- Cada cenário foi marcado como **Aprovado (PASSED)** ou **Reprovado (FAILED)**
+
+## Resultados
+- Bugs identificados durante os testes foram devidamente documentados
+- Todos os defeitos encontrados foram reportados no Jira com detalhes completos
+
+## Ferramentas Utilizadas
 - Android Emulator (Pixel 5)
 - Jira
 - Google Sheets
-- Figma (for layout reference)
-
-## Result
-All planned tests were executed and marked as PASSED or FAILED.
-Bugs found during testing were documented and reported in Jira.
-
----
-
+- Figma (referência de layout)
