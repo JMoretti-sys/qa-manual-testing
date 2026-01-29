@@ -1,39 +1,42 @@
-# Sprint 03 – Functional Testing (Manual QA)
+# Sprint 03 – Testes Funcionais (QA Manual)
 
-## Project
-Functional testing of the car-sharing feature of the Urban Routes application.
+## Objetivo
+Executar testes funcionais manuais para validar o correto funcionamento da funcionalidade de compartilhamento de carros da aplicação Urban Routes.
 
-## Test Scope
-The following activities were performed:
+## Projeto
+**Urban Routes – Funcionalidade de Car Sharing**
 
-- UI layout testing of the booking form
-- Functional testing of the car-sharing flow
-- Validation of payment method and add card windows
-- Testing of the "Reserve" button logic
-- End-to-end testing of the car reservation process
+## Escopo dos Testes
+As seguintes atividades foram realizadas durante esta sprint:
 
-## Test Design
-- Checklists for UI layout
-- Functional checklists using Equivalence Partitioning and Boundary Value Analysis
-- Positive and negative test scenarios
-- Test cases for critical user flows
+- Testes de layout da interface do formulário de reserva  
+- Testes funcionais do fluxo de compartilhamento de carros  
+- Validação das janelas de método de pagamento e adicionar cartão  
+- Testes da lógica do botão "Reservar"  
+- Testes ponta a ponta (End-to-End) do processo de reserva de carro  
 
-## Test Execution
-Tests were executed in the following environments:
+## Design de Testes
+- Checklists de layout de interface (UI)  
+- Checklists funcionais utilizando Classes de Equivalência e Análise de Valores Limite  
+- Cenários de teste positivos e negativos  
+- Casos de teste para fluxos críticos do usuário  
 
-- Google Chrome – 800x600
-- Mozilla Firefox – 1920x1080
+## Execução dos Testes
+Os testes foram executados nos seguintes ambientes:
 
-## Bug Reporting
-- Bugs were reported using Jira
-- Each failed test case references a corresponding bug ID
+- Google Chrome – resolução 800x600  
+- Mozilla Firefox – resolução 1920x1080  
 
-## Deliverables
-- Test checklists and test cases documented in Excel
-- Bug reports linked to test cases
+## Registro de Bugs
+- Os defeitos identificados foram registrados no Jira  
+- Cada caso de teste com falha está vinculado a um ID de bug correspondente  
 
-## Tools
-- Google Sheets / Excel
-- Jira
-- Chrome and Firefox
-- Manual QA techniques
+## Entregáveis
+- Checklists e casos de teste documentados em Excel  
+- Relatórios de bugs vinculados aos casos de teste  
+
+## Ferramentas Utilizadas
+- Google Sheets / Microsoft Excel  
+- Jira  
+- Google Chrome e Mozilla Firefox  
+- Técnicas de QA Manual  
