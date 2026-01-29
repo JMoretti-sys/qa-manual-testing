@@ -1,67 +1,106 @@
-# Sprint 6 – Logs and Database Testing (Taxi App)
+# Sprint 6 – Logs and Database Testing (Taxi Application)
 
-This project focuses on backend testing activities using **server logs** and a **PostgreSQL database** for a taxi application.
-
-The goal of this sprint is to validate system behavior through log analysis and data verification, supporting bug investigation and business validation.
+This project focuses on backend QA activities using **Linux log analysis** and **PostgreSQL database validation** for a taxi application.
 
 ---
 
-## Scope
+## Part 1 – Console / Log Analysis
 
-### Console / Logs
-- Search requests from a specific IP range
-- Filter logs by date
-- Separate log records based on HTTP error codes (400 and 500)
-- Create directories and files on a remote Linux server
+### Task 1 – Requests from a Specific IP Range
 
-### Database (PostgreSQL)
-- Validate the number of available taxis
-- Analyze data grouped by taxi company
-- Identify companies with insufficient vehicles
-- Validate weather-based business rules using conditional logic
-- Verify ride volume inconsistencies using aggregated data
+**Goal:**  
+Identify all requests originating from IP addresses starting with `233.201.*`.
 
----
+**Command used:**
+```bash
+grep -R '^233.201' ~/logs/2019/12
+Sample results:
 
-## Tasks Performed
+233.201.188.154 - - [18/12/2019:21:46:01 +0000] "DELETE /events HTTP/1.1" 403 3971
+233.201.182.9   - - [21/12/2019:21:56:20 +0000] "PATCH /users HTTP/1.1" 400 4118
+Task 2 – Log Separation by Error Code
+Directory creation:
+mkdir bug1
+mkdir bug1/events
+Extract logs with errors 400 and 500:
+grep ' [45]00 ' ~/logs/2019/12/apache_2019-12-30.txt > ~/bug1/main.txt
+Split logs by error type:
+grep ' 400 ' ~/bug1/main.txt > ~/bug1/events/400.txt
+grep ' 500 ' ~/bug1/main.txt > ~/bug1/events/500.txt
+Results summary:
+Total lines in 400.txt: 172
 
-### Task 1 – Log Filtering by IP
-- Identified requests originating from IPs starting with `233.201.*`
-- Used command-line tools to extract matching log entries
+First 3 lines (400):
 
-### Task 2 – Log Separation by Error Code
-- Created directory structure for bug investigation
-- Saved logs from a specific date into a main file
-- Split log entries into separate files based on HTTP status codes (400 and 500)
+80.57.170.51 - - [30/12/2019:21:35:12 +0000] "DELETE /users HTTP/1.1" 400 3623
+204.235.176.118 - - [30/12/2019:21:35:13 +0000] "POST /users HTTP/1.1" 400 4704
+82.95.203.67 - - [30/12/2019:21:35:19 +0000] "DELETE /lists HTTP/1.1" 400 3737
+Total lines in 500.txt: 156
 
-### Task 3 – Database Validation (Taxi Availability)
-- Counted total number of taxis available in the system
-- Grouped taxis by company
-- Identified companies with fewer than 100 vehicles
+First 3 lines (500):
 
-### Task 4 – Weather Condition Classification
-- Classified weather conditions as **Good** or **Bad** using SQL CASE
-- Validated weather data for a specific date range
+64.250.112.189 - - [30/12/2019:21:35:13 +0000] "PUT /parsers HTTP/1.1" 500 4639
+193.253.101.180 - - [30/12/2019:21:35:31 +0000] "PATCH /alerts HTTP/1.1" 500 2944
+197.106.117.194 - - [30/12/2019:21:35:31 +0000] "PATCH /parsers HTTP/1.1" 500 3519
+Part 2 – Database Testing (PostgreSQL)
+Task 1 – Total Number of Cars
+Result:
+Total cars available: 5529
 
-### Task 5 – Ride Volume Analysis
-- Analyzed number of trips per taxi company
-- Compared ride counts across specific dates
-- Identified potential data inconsistencies
+Query used:
 
----
+SELECT COUNT(*) FROM cabs;
+Task 2 – Companies with Fewer Than 100 Cars
+Query used:
 
-## Tools Used
+SELECT 
+  COUNT(*) AS cnt, 
+  company_name 
+FROM cabs
+GROUP BY company_name
+HAVING COUNT(*) < 100
+ORDER BY cnt DESC;
+Result:
+51 companies have fewer than 100 cars.
 
-- Linux Terminal (SSH)
-- PostgreSQL
-- SQL (JOIN, GROUP BY, HAVING, CASE)
-- Google Docs (test report template)
+Task 3 – Weather Condition Classification
+Query used:
 
----
+SELECT 
+  ts,
+  CASE 
+    WHEN description ILIKE '%rain%' OR description ILIKE '%storm%' 
+    THEN 'Bad'
+    ELSE 'Good'
+  END AS weather_conditions
+FROM weather_records
+WHERE ts BETWEEN '2017-11-05 00:00:00' AND '2017-11-05 23:59:59';
+Result:
+Weather conditions were successfully classified as Good or Bad for the specified period.
 
-## Result
+Task 4 – Number of Trips per Taxi Company
+Query used:
 
-Log data and database records were successfully analyzed to support bug investigation and business validation.
+SELECT 
+  c.company_name,
+  COUNT(t.trip_id) AS trips_amount
+FROM cabs c
+JOIN trips t ON t.cab_id = c.cab_id
+WHERE CAST(t.start_ts AS date) BETWEEN '2017-11-15' AND '2017-11-16'
+GROUP BY c.company_name
+ORDER BY trips_amount DESC;
+Result:
+Trip volumes per company were analyzed to identify potential inconsistencies.
 
-All tasks were completed according to the project requirements.
+Tools Used
+Linux (SSH)
+
+Bash commands (grep, wc, head, tail)
+
+PostgreSQL
+
+SQL (JOIN, GROUP BY, HAVING, CASE)
+
+Conclusion
+This project demonstrates the ability to investigate backend issues using logs and databases, supporting bug analysis and business validation.
 ---
