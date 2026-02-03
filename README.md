@@ -1,25 +1,30 @@
+# QA Manual Testing
 
-This repository contains manual QA testing projects developed during my training at TripleTen.
+Este repositório contém projetos de **testes manuais em QA** desenvolvidos durante minha formação na **TripleTen**.
 
-The purpose of this repository is to demonstrate practical experience in:
-- Test case design
-- Manual testing
-- Bug reporting
-- Regression testing
-- Test documentation
+O objetivo deste repositório é demonstrar experiência prática em:
 
-## Skills & Tools
-- Manual Testing
-- Test Case Design
-- Equivalence Partitioning
-- Boundary Value Analysis
-- Bug Reports
-- Agile / Scrum basics
+- Criação de casos de teste  
+- Testes manuais  
+- Registro e documentação de bugs  
+- Testes de regressão  
+- Documentação de testes  
 
-## Repository Structure
-Each folder represents a sprint or project completed during the course.
+## Habilidades & Ferramentas
 
-## About Me
-Junior QA Analyst in career transition, focused on quality, processes, and continuous improvement.
+- Testes Manuais  
+- Criação de Casos de Teste  
+- Particionamento de Equivalência  
+- Análise de Valores Limite  
+- Relatórios de Bugs  
+- Noções de Metodologias Ágeis (Scrum)
 
-📍 São Paulo, Brazil
+## Estrutura do Repositório
+
+Cada pasta representa uma sprint ou projeto realizado durante o curso.
+
+## Sobre Mim
+
+Profissional em transição de carreira para **Quality Assurance**, com foco em qualidade, processos e melhoria contínua.
+
+📍 São Paulo, Brasil
